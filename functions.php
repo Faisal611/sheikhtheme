@@ -24,6 +24,6 @@ if (! function_exists('after_setup_theme')) {
 			echo '<li><a href="' . home_url() . '" class="transition">HOME</a></li>';
 			echo '</ul>';
 		}
-		
+
 	}
 }
