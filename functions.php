@@ -27,3 +27,9 @@ if (! function_exists('after_setup_theme')) {
 
 	}
 }
+
+
+add_action('wp_enqueue_scripts','sheikh_enqueuestyle');
+	function sheikh_enqueuestyle () {
+
+	}
