@@ -3,8 +3,8 @@
     <div id="rs-slider" class="rs-slider slider3 rs-slider-style4 relative">
         <div class="bend niceties">
             <div id="nivoSlider" class="slides">
-                <img src="assets/images/slider/h4-sl1.jpg" alt="" title="#slide-1" />
-                <img src="assets/images/slider/h4-sl2.jpg" alt="" title="#slide-2" />
+                <img src="<?php echo get_template_directory_uri()?>.'/assets/images/slider/h4-sl1.jpg'" alt="" title="#slide-1" />
+                <img src="<?php echo get_template_directory_uri()?>.'/assets/images/slider/h4-sl2.jpg'" alt="" title="#slide-2" />
             </div>
             <!-- Slide 1 -->
             <div id="slide-1" class="slider-direction">
@@ -59,7 +59,7 @@
     <!-- Services Section Start -->
     <div id="rs-services" class="rs-services style6">
         <div class="container custom">
-            <div class="services-box-area bg20">
+            <div class="services-box-area bg20" style = "background-image: url(<?php echo get_template_directory_uri().'/assets/images/bg/service-bg4.jpg'?>); ">
                 <div class="row margin-0">
                     <div class="col-lg-3 col-md-6 col-sm-6 padding-0">
                         <div class="services-item">

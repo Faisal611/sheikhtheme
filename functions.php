@@ -62,6 +62,7 @@ add_action('wp_enqueue_scripts','sheikh_enqueue_script');
 		wp_enqueue_script('waypoints-js',get_template_directory_uri().'/assets/js/waypoints.min.js',array('jquery'));
 		wp_enqueue_script('counterup-js',get_template_directory_uri().'/assets/js/jquery.counterup.min.js',array('jquery'));
 		wp_enqueue_script('popup-js',get_template_directory_uri().'/assets/js/jquery.magnific-popup.min.js',array('jquery'));
+		wp_enqueue_script('nivo-slider-js',get_template_directory_uri().'/assets/inc/custom-slider/js/jquery.nivo.slider.js',array('jquery'));
 		wp_enqueue_script('contact-js',get_template_directory_uri().'/assets/js/contact.form.js',array('jquery'));
 		wp_enqueue_script('main-js',get_template_directory_uri().'/assets/js/main.js',array('jquery'));
 	}

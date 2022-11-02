@@ -10,6 +10,9 @@
  *
  **/
 (function ($) {
+    $(document).ready(function () {
+
+
     "use strict";
     // sticky menu
     var header = $('.menu-sticky');
@@ -421,5 +424,5 @@
 
         });
     }
-
+    });
 })(jQuery);
