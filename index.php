@@ -13,7 +13,7 @@
                     <div class="container">
                         <div class="slider-des">
                             <div class="sl-subtitle"> Our Business Goal</div>
-                            <h1 class="sl-title"> To grow & manage<br> Your Business</h1>
+                            <h1 class="sl-title"> To grow & manage <br> Your Business</h1>
                         </div>
                         <ul class="slider-bottom">
                             <li><a class="readon consultant orange-slide" href="contact.html">Get Started</a></li>
