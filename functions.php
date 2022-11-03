@@ -16,7 +16,7 @@ if (! function_exists('after_setup_theme')) {
 
 	/*------- register menu ------*/
 		register_nav_menus(array(
-			'main-menu' => __('Main Menu'),
+			'main-menu' => __('Main Menu','sheikh_theme'),
 		));
 
 		function default_main_menu() {
