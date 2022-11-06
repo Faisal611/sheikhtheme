@@ -14,7 +14,7 @@ if (! function_exists('after_setup_theme')) {
 			'aside','image','video', 'quote','link','gallery','status','audio','chat',
 		));
 
-	/*------- register menu ------*/
+/*------- register menu ------*/
 		register_nav_menus(array(
 			'main-menu' => __('Main Menu','sheikh_theme'),
 		));
@@ -25,6 +25,43 @@ if (! function_exists('after_setup_theme')) {
 			echo '</ul>';
 		}
 
+/*---- register post ---- */
+		register_post_type('banner-slider',array(
+			'labels' => array(
+				'name' => 'All Banner Slider',
+				'add_new' => __('Abb New Slider','sheikh_theme'),
+				'add_new_item' => __('Abb New Slider','sheikh_theme')
+			),
+			'public' => true,
+			'supports' => array(
+				  'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats'
+			),
+			'menu_icon' => 'dashicons-embed-photo'
+		));
+
+/*----- Category ------*/
+		register_taxonomy ('banner_category','banner-slider',
+			array (
+				'labels' => array(
+					'name' => __('Category', 'sheikh_theme'),
+					'add_new' => __('Add New Category' , 'sheikh_theme'),
+					'add_new_item' => __('Add new category','sheikh_theme'),
+				),
+				'public' => true,
+				'hierarchical' => true
+		));
+
+/*----- Tags ------*/
+		register_taxonomy('banner_tag','banner-slider',
+			array(
+				'labels' => array(
+					'name' => __('Tags', 'sheikh_theme'),
+					'add_new' => __('Add New Tags', 'sheikh_theme'),
+					'add_new_item' => __('Add New Tags', 'sheikh_theme')
+				),
+				'public'    => true,
+				'hierarchical'  => false
+		));
 	}
 }
 
