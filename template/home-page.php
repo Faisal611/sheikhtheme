@@ -22,17 +22,24 @@
 			<?php  while ($querys->have_posts()) : $querys->the_post(); ?>
 				<div id="slide-1" class="slider-direction">
 					<div class="content-part text-center">
+
 						<div class="container">
 							<div class="slider-des">
 								<div class="sl-subtitle"><?php the_content();?></div>
 								<h1 class="sl-title"> <?php the_title()?></h1>
 							</div>
 							<ul class="slider-bottom">
-								<li><a class="readon consultant orange-slide" href="contact.html">Get Started</a></li>
+                                <?php
+                                 $slider_btn_text = get_post_meta(get_the_ID(),'__btn_text__',true);
+                                    if(!empty( $slider_btn_text )) {?>
+                                    <li>
+                                        <a class="readon consultant orange-slide" href="<?php echo get_post_meta(get_the_ID(),'__btn_link__',true)?>"><?php echo $slider_btn_text ?></a>
+                                    </li>
+                                    <?php }?>
 								<li>
 									<div class="rs-videos">
 										<div class="animate-border orange-color-style">
-											<a class="popup-border" href="https://www.youtube.com/watch?v=FMvA5fyZ338">
+											<a class="popup-border" href="<?php echo get_post_meta(get_the_ID(),'__video_link__',true)?>">
 												<i class="fa fa-play"></i>
 											</a>
 										</div>
@@ -53,22 +60,21 @@
 		<div class="container custom">
 			<div class="services-box-area bg20" style = "background-image: url(<?php the_field('service_bg_image');?>); ">
 				<div class="row margin-0">
-
                     <?php
                         $services = get_field('service_repeater');
                         foreach ( $services as $service) {
                     ?>
-					<div class="col-lg-3 col-md-6 col-sm-6 padding-0">
-						<div class="services-item no-border">
-							<div class="services-icon">
-								<img class="dance_hover" src="<?php echo $service['service_img']?>" alt="Services">
-							</div>
-							<div class="services-content">
-								<h3 class="title"><a href="<?php echo $service['service_link']?>"><?php echo $service['service_title']?></a></h3>
-								<p class="margin-0"><?php echo $service['service_content']?></p>
-							</div>
-						</div>
-					</div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 padding-0">
+                            <div class="services-item no-border">
+                                <div class="services-icon">
+                                    <img class="dance_hover" src="<?php echo $service['service_img']?>" alt="Services">
+                                </div>
+                                <div class="services-content">
+                                    <h3 class="title"><a href="<?php echo $service['service_link']?>"><?php echo $service['service_title']?></a></h3>
+                                    <p class="margin-0"><?php echo $service['service_content']?></p>
+                                </div>
+                            </div>
+                        </div>
                     <?php } ?>
 				</div>
 			</div>

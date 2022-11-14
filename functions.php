@@ -1,4 +1,8 @@
 <?php
+
+require_once ('metabox/init.php');
+require_once ('metabox/custom.php');
+
 if (! function_exists('after_setup_theme')) {
     add_action('after_setup_theme','sheikh_theme_setup');
 	function sheikh_theme_setup () {
