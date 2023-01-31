@@ -6,52 +6,48 @@
 ?>
 	<!-- Slider Start -->
 	<div id="rs-slider" class="rs-slider slider3 rs-slider-style4 relative">
-		<?php
-		$querys = new  WP_Query(
-			array(
-				'post_type' => 'banner-slider',
-				'posts_per_page' => 2
-			));
-		?>
+        <?php
+            $services = new WP_Query(array(
+                'post_type' => 'banner-slider'
+            ))
+        ?>
+
 		<div class="bend niceties">
 			<div id="nivoSlider" class="slides">
-				<img src="<?php echo get_template_directory_uri()?>.'/assets/images/slider/h4-sl1.jpg'" alt="" title="#slide-1" />
-				<img src="<?php echo get_template_directory_uri()?>.'/assets/images/slider/h4-sl2.jpg'" alt="" title="#slide-2" />
+                <?php
+                    while ($services->have_posts()) : $services->the_post();
+                ?>
+				    <img src="<?php echo get_the_post_thumbnail_url()?>" alt="" title="#slide-<?php echo get_the_ID()?>" />
+                <?php endwhile; wp_reset_postdata();?>
 			</div>
-			<!-- Slide 1 -->
-			<?php  while ($querys->have_posts()) : $querys->the_post(); ?>
-				<div id="slide-1" class="slider-direction">
-					<div class="content-part text-center">
-
-						<div class="container">
-							<div class="slider-des">
-								<div class="sl-subtitle"><?php the_content();?></div>
-								<h1 class="sl-title"> <?php the_title()?></h1>
-							</div>
-							<ul class="slider-bottom">
-                                <?php
-                                 $slider_btn_text = get_post_meta(get_the_ID(),'__btn_text__',true);
-                                    if(!empty( $slider_btn_text )) {?>
-                                    <li>
-                                        <a class="readon consultant orange-slide" href="<?php echo get_post_meta(get_the_ID(),'__btn_link__',true)?>"><?php echo $slider_btn_text ?></a>
-                                    </li>
-                                    <?php }?>
-								<li>
-									<div class="rs-videos">
-										<div class="animate-border orange-color-style">
-											<a class="popup-border" href="<?php echo get_post_meta(get_the_ID(),'__video_link__',true)?>">
-												<i class="fa fa-play"></i>
-											</a>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			<?php endwhile; wp_reset_postdata();?>
+            <!-- Slide 1 -->
+			<?php
+			    while ($services->have_posts()) : $services->the_post();
+            ?>
+            <div id="slide-<?php echo get_the_ID()?>" class="slider-direction">
+                <div class="content-part text-center">
+                    <div class="container">
+                        <div class="slider-des">
+                            <div class="sl-subtitle"><?php the_content();?></div>
+                            <h1 class="sl-title"><?php the_title()?></h1>
+                        </div>
+                        <ul class="slider-bottom">
+                            <li><a class="readon consultant orange-slide" href="<?php the_field('banner_btn_link');?>"><?php the_field('banner_btn_text'); ?></a></li>
+                            <li>
+                                <div class="rs-videos">
+                                    <div class="animate-border orange-color-style">
+                                        <a class="popup-border" href="<?php the_field('banner_video_link');?>">
+                                            <i class="fa fa-play"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+			    <?php endwhile; wp_reset_postdata(); ?>
 		</div>
-
 	</div>
 	<!-- Slider End -->
 
