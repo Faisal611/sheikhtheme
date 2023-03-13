@@ -14,9 +14,7 @@
 
 		<div class="bend niceties">
 			<div id="nivoSlider" class="slides">
-                <?php
-                    while ($services->have_posts()) : $services->the_post();
-                ?>
+                <?php while ($services->have_posts()) : $services->the_post(); ?>
 				    <img src="<?php echo get_the_post_thumbnail_url()?>" alt="" title="#slide-<?php echo get_the_ID()?>" />
                 <?php endwhile; wp_reset_postdata();?>
 			</div>
